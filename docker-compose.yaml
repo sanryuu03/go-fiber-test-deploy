@@ -1,0 +1,16 @@
+name: go-app
+services:
+  app:
+    image: ghcr.io/username/repo:latest
+    container_name: go-app
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      - GO_ENV=production
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
